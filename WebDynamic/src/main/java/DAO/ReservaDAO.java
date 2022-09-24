@@ -26,8 +26,8 @@ public class ReservaDAO {
 			conn = Conexao.createConnectionToMySQL();
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setInt(1, r.getEntrada());
-			pstm.setInt(2, r.getSaida());
+			pstm.setString(1, r.getEntrada());
+			pstm.setString(2, r.getSaida());
 			pstm.setDouble(3, r.getTotal());
 			pstm.setString(4, r.getCliente().getCpf());
 			pstm.setInt(5, r.getHospedagem().getId());
@@ -88,8 +88,8 @@ public class ReservaDAO {
 			conn = Conexao.createConnectionToMySQL();
 			pstm = conn.prepareStatement(sql);
 
-			pstm.setInt(1, r.getEntrada());
-			pstm.setInt(2, r.getSaida());
+			pstm.setString(1, r.getEntrada());
+			pstm.setString(2, r.getSaida());
 			pstm.setDouble(3, r.getTotal());
 			pstm.setString(4, r.getCliente().getCpf());
 			pstm.setInt(5, r.getHospedagem().getId());
@@ -136,9 +136,9 @@ public class ReservaDAO {
 				Transporte t = new Transporte();
 
 				r.setCod(rset.getInt("cod_res"));
-				r.setEntrada(rset.getInt("inicio_res"));
-				r.setSaida(rset.getInt("final_res"));
-				r.setTotal(rset.getDouble("preco_res"));
+				r.setEntrada(rset.getString("inicio_res"));
+				r.setSaida(rset.getString("final_res"));
+				r.setTotal(rset.getDouble("valor"), rset.getDouble("valor_hos"), rset.getDouble("valor_passeios"));
 				c.setCpf(rset.getString("CPF_cli"));
 				h.setId(rset.getInt("id_hos"));
 				l.setId(rset.getInt("id_local"));
@@ -188,9 +188,9 @@ public class ReservaDAO {
 			rset.next();
 
 			r.setCod(rset.getInt("cod_res"));
-			r.setEntrada(rset.getInt("inicio_res"));
-			r.setSaida(rset.getInt("final_res"));
-			r.setTotal(rset.getDouble("preco_res"));
+			r.setEntrada(rset.getString("inicio_res"));
+			r.setSaida(rset.getString("final_res"));
+			r.setTotal(rset.getDouble("valor"), rset.getDouble("valor_hos"), rset.getDouble("valor_passeios"));
 			c.setCpf(rset.getString("CPF_cli"));
 			h.setId(rset.getInt("id_hos"));
 			l.setId(rset.getInt("id_local"));

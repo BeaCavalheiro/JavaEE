@@ -1,0 +1,163 @@
+header {
+    display: inline;
+    align-items: center;
+
+
+}
+
+.flex {
+    display: flex;
+}
+
+.bg {
+    background-color: rgba(94, 94, 94, 0.548);
+}
+
+.container {
+    position: relative;
+}
+::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #034c8c;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: #f287051d;
+}
+.logo {
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+}
+input{
+    
+    border-radius: 5px;
+}
+.logo>img {
+    margin-top: 5%;
+    width: 30%;
+}
+.navbar {
+    flex-wrap: wrap;
+    display: flex !important;
+    justify-content: space-around !important;
+}
+ul>li {
+
+    margin-left: 50px;
+}
+.dropdown-item {
+    color: #034c8c;
+}
+.alter{
+    color: #f28705;
+}
+li>p::first-letter {
+
+    color: #f28705;
+
+}
+
+a:hover{
+    color: #f28705
+
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+h3{
+    color: #f2b705;
+    font-weight: bold;
+    text-align: center;
+    
+}
+h3:after{
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 2px;
+    
+    background: -webkit-linear-gradient(left, #f2b70500 0%,#f2b70552 20%,#f2b705 53%,#f2b70552 79%,#f2b70500 100%); 
+  }
+  main {
+    padding: 50px;
+    padding-left: 20px;
+    text-align: justify;
+    
+}
+article {
+    padding-left: 20px;
+    text-align: center;
+
+}
+.fe::first-letter {
+    color: #034c8c;
+    margin-top: 10px;
+
+}
+h1>a {
+text-decoration: none;
+    color: #f28705 ;
+}
+section>h2 {
+    padding-top: 20px;
+    margin-top: 10px;
+    color: #f28705;
+}
+.card-img-top{
+    width: 18rem;
+    height: 18rem;
+}
+.nowarp{
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; 
+    margin: auto;
+    justify-content: space-evenly;
+    
+ }
+.accordion-button ::first-letter {
+
+    color: #f28705;
+
+}
+.btn-primary{
+    background-color : #034c8c!important;
+ }
+article>p {
+    text-align: justify;
+}
+h6 {
+    color: #f2b705;
+}
+p>a {
+    text-decoration: none;
+    color: #70735d;
+}
+footer {
+    padding-top: 20px;
+    margin-top: 20px;
+    background-color: #034c8c1d;
+    display: flex;
+    flex-wrap: wrap;
+}
+#foot>img {
+    height: 200px;
+}
+.foot{
+    list-style: none;
+    padding-left: 10px;
+}
+table {
+    width: 30%;
+}
+
+.camp {
+    text-align: left;
+}
+

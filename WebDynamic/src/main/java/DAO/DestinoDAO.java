@@ -121,7 +121,7 @@ public class DestinoDAO {
 				d.setId(rset.getInt("id_local"));
 				d.setNome(rset.getString("nome_local"));
 				d.setLocal(rset.getString("localização"));
-				d.setValor(rset.getDouble("valor_hos"));
+				d.setValor(rset.getDouble("valor_passeios"));
 
 				loc.add(d);
 			}
