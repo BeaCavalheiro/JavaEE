@@ -19,17 +19,26 @@
 </head>
 
 <body>
-
+<nav class="nav navbar-light bg-light">
+		<a class="nav-link active" aria-current="page" href="./cliente"><h3>HT</h3></a>
+		<a class="nav-link"	href="../clientes/index.jsp">Clientes</a> 
+		<a class="nav-link" href="../hospedagem/index.jsp">Hospedagem</a> <a
+			class="nav-link" href="../transporte/index.jsp">Transporte</a> <a
+			class="nav-link" href="../destino/index.jsp">Destino</a> <a
+			class="nav-link" href="../reserva/index.jsp">Reserva</a>
+	</nav>
 	<div class="container">
 		<h3>Gerar Reserva</h3>
 		<form action="GerarReserva" method="post" class="form-control">
 			<fieldset>
-			<p>
-					<select for="cliente" id="cliente" name="Cliente" >
-						<option value="">{&cliente.nome}</option>
+			<div class="form-group">
+			<label for="cli" class="form-label"></label>
+					<select id="cli" for="cliente" name="cliente" class="form-select">
+						<option value="DEFAULT">Selecione um cliente</option>
+						<option value={cliente.cpf}>Nome</option>
 						
 					</select>
-				</p>
+				</div>
 				<p>
 					<label for="entrada">chekin:</label> <input type="date"
 						id="entrada" name="entrada" size="40" class="form-control">
@@ -38,32 +47,39 @@
 						name="saida" size="40" class="form-control">
 				</p>
 				
-				<p>
-					<select for="destino" id="destino" name="Destino" >
-						<option value="">{&destino.nome}</option>
+				<div class="form-group">
+			<label for="des" class="form-label"></label>
+					<select id="des" for="destino" name="destino" class="form-select">
+						<option value="DEFAULT">Selecione um destino</option>
+						<option value={destino.id}>Nome</option>
 						
 					</select>
-				</p>
-				<p>
-					<select for="transporte" id="transporte" name="Transporte" >
-						<option value="">{&transporte.aer/rod}</option>
+				</div>
+				<div class="form-group">
+			<label for="hosp" class="form-label"></label>
+					<select id="hosp" for="hospedagem" name="hospedagem" class="form-select">
+						<option value="DEFAULT">Selecione um Hotel</option>
+						<option value={hospedagem.cod}>Nome</option>
 						
 					</select>
-				</p>
+				</div>
 
-				<p>
-					<select for="hospedagem" id="hospedagem" name="Hospedagem" >
-						<option value="">{&hospedagem.nome}</option>
+				<div class="form-group">
+			<label for="trans" class="form-label"></label>
+					<select id="trans" for="transporte" name="transporte" class="form-select">
+						<option value="DEFAULT">Selecione a forma de Transporte</option>
+						<option value={transporte.id}>Nome</option>
 						
 					</select>
-				</p>
+				</div>
 				<p>
 				total
 				</p>
 
 				<p>
-					<input type="submit" value="Cadastrar Cliente"
-						class="btn btn-primary">
+					<button type="submit" class="btn btn-primary">Cadastrar
+					</button>
+					<a href=".index.jsp" class="btn btn-danger">Cancelar</a>
 				</p>
 			</fieldset>
 		</form>

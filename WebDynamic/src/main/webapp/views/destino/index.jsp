@@ -1,10 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import=" model.Destino" import=" java.util.List"%>
+<%
+@SuppressWarnings("unchecked")
+List<Destino> destinos = (List<Destino>) request.getAttribute("destinos");
+%>
+
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<meta charset="ISO-8859-1">
-<title>HT-ADM(clientes)</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>HT-ADM(destinos)</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -18,35 +25,69 @@
 
 </head>
 <body>
-<nav class="nav">
-  <a class="nav-link active" aria-current="page" href="#"><h3>HT</h3></a>
-  <a class="nav-link"	href="../clientes/index.jsp">Clientes</a> 
-  <a class="nav-link" href="../hospedagem/index.jsp">Hospedagem</a>
-  <a class="nav-link" href="../transporte/index.jsp">Transporte</a>
-<a class="nav-link"	href="../reserva/index.jsp">Reserva</a>
-		</nav>
-<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">HT</a></li>
-    <li class="breadcrumb-item active" aria-current="page">ADM</li>
-    <li class="breadcrumb-item active" aria-current="page">Destino</li>
-  </ol>
-</nav>
-<div class="table-responsive">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>CPF</th>
-						<th>NOME</th>
-						<th>ENDEREÇO</th>
-						<th>TELEFONE</th>
-						<th>EMAIL</th>
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<div class="container">
+
+			<a class="navbar-brand" aria-current="page" href="./index.jsp"><h3>HT</h3></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="./clientes">Clientes</a></li>
+					<li class="nav-item">	<a class="nav-link" href="./hospedagem">Hospedagem</a> </li>
+					<li class="nav-item">	<a class="nav-link" href="./transporte">Transporte</a> </li>
+					<li class="nav-item">	<a class="nav-link" href="./destino">Destino</a> </li>
+					<li class="nav-item">	<a class="nav-link" href="./reserva">Reserva</a></li>
+				</ul>
+			</div>
+	</nav>
+	<nav style="-bs-breadcrumb-divider: '&gt;';" aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="../../index.jsp">HT</a></li>
+			<li class="breadcrumb-item active" aria-current="page">ADM</li>
+			<li class="breadcrumb-item active" aria-current="page">Destinos</li>
+		</ol>
+	</nav>
+	<div class="container ">
+		<h2 class="container">Destinos</h2>
+		<div class="container">
+			<a href="./destino-creat" class="btn btn-warning"> Add Destinos</a>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>NOME</th>
+							<th>LOCAL</th>
+							<th>VALOR</th>
+							<th>Mudar/Apagar</th>
+						</tr>
+					</thead>
+					<!--  <tbody>
+		//for (Destino d : destinos) {				%>
+				<tr>
+					<t//=d.getId()				%></td>
+					<t//=d.getNome()				%></td>
+					<t//=d.getLocal()				%></td>
+					<t//=d.getValor()				%></td>
+					</td>-->
+					<td class="d-flex"><a
+						href="./destino-edit?id=<%//=d.getId()%>" class="btn btn-info"> Editar</a>
+						<a href="./destino-delet?id=<%//=d.getId()%>"
+						class="btn btn-danger"> Apagar </a></td>
 					</tr>
-				</thead>
-				
-
-			</table>
-
+					<%
+					//}
+					%>
+					</tbody>
+					
+				</table>
+			</div>
 		</div>
+	</div>
 </body>
 </html>

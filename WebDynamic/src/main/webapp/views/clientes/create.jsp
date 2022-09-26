@@ -19,13 +19,14 @@
 </head>
 
 <body>
-<nav class="nav">
-  <a class="nav-link active" aria-current="page" href="#"><h3>HT</h3></a>
-  <a class="nav-link" href="../hospedagem/index.jsp">Hospedagem</a>
-  <a class="nav-link" href="../transporte/index.jsp">Transporte</a>
-	<a class="nav-link"	href="../destino/index.jsp">Destino</a> 
-	<a class="nav-link"	href="../reserva/index.jsp">Reserva</a>
-		</nav>
+<nav class="nav navbar-light bg-light">
+		<a class="nav-link active" aria-current="page" href="./cliente"><h3>HT</h3></a>
+		<a class="nav-link"	href="../clientes/index.jsp">Clientes</a> 
+		<a class="nav-link" href="../hospedagem/index.jsp">Hospedagem</a> <a
+			class="nav-link" href="../transporte/index.jsp">Transporte</a> <a
+			class="nav-link" href="../destino/index.jsp">Destino</a> <a
+			class="nav-link" href="../reserva/index.jsp">Reserva</a>
+	</nav>
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">HT</a></li>
@@ -35,7 +36,7 @@
 </nav>
 	<div class="container">
 		<h3>Cadastrar Clientes</h3>
-		<form action="../../controller/ClienteServelet" method="post" class="form-control">
+		<form action="../../ClienteServelet" method="post" class="form-control">
 			<fieldset>
 			<p>
 					<label for="cpf">CPF:</label> <input type="text" id="cpf"
@@ -59,8 +60,9 @@
 				</p>
 
 				<p>
-					<input type="submit" value="Cadastrar Cliente"
-						class="btn btn-primary">
+					<button type="submit" class="btn btn-primary">Cadastrar
+					</button>
+					<a href=".index.jsp" class="btn btn-danger">Cancelar</a>
 				</p>
 			</fieldset>
 		</form>
