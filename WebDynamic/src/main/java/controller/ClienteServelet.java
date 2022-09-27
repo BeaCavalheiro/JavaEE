@@ -13,102 +13,93 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.ClienteDAO;
 import model.Cliente;
 
-@WebServlet(urlPatterns = { "/cliente","/cliente-creat", "/cliente-edit", "/cliente-update", "/cliente-delet" })
+@WebServlet(urlPatterns = { "/cliente", "/cliente-creat", "/cliente-save", "/cliente-edit", "/cliente-update",
+		"/cliente-delet" })
 public class ClienteServelet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
 	ClienteDAO clienteDAO = new ClienteDAO();
 	Cliente c = new Cliente();
 
-	public ClienteServelet() {
-		super();
+protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+String action = request.getServletPath();
+System.out.println(action);
+switch (action) {
+case "/cliente":
+read(request, response);
+break;
+case "/cliente-creat":
+creatCli(request, response);
+break;
+case "/cliente-save":
+creat(request, response);
+break;
+case "/cliente-edit":
+edit(request, response);
+break;
+case "/cliente-update":
+update(request, response);
+break;
+case "/cliente-delet":
+delet(request, response);
+break;
+default:
+response.sendRedirect("./index.html");
+break;}
+}
 
-	}
+protected void read(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+List<Cliente> lista = clienteDAO.getCliente();
+request.setAttribute("clientes", lista);
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		String action = request.getServletPath();
-		System.out.println(action);
+ RequestDispatcher rd = request.getRequestDispatcher("./views/clientes/index.jsp");
+rd.forward(request, response);}
 
-		switch (action) {
-		case "/cliente":
-			read(request, response);
-			break;
-		case "/cliente-creat":
-			creat(request, response);
-			break;
-		case "/cliente-edit":
-			edit(request, response);
-			break;
-		case "/cliente-update":
-			update(request, response);
-			break;
-		case "/cliente-delet":
-			delet(request, response);
-			break;
-		default:
-			response.sendRedirect("index.html");
-			break;
-		}
-	}
+protected void creatCli(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 
-	protected void read(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Cliente> lista = clienteDAO.getCliente();
-		request.setAttribute("clientes", lista);
-		RequestDispatcher rd = request.getRequestDispatcher("./views/clientes/index.jsp");
-		rd.forward(request, response);
-		
-	}
-			
-	protected void creat(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		c.setCpf(request.getParameter("cpf"));
-		c.setNome(request.getParameter("nome"));
-		c.setEndereco(request.getParameter("endereco"));
-		c.setTel(request.getParameter("telefone"));
-		c.setEmail(request.getParameter("email"));
+RequestDispatcher rd = request.getRequestDispatcher("./views/clientes/create.jsp");
+rd.forward(request, response);}
 
-		clienteDAO.save(c);
-		response.sendRedirect("cliente");
-	}
+protected void creat(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 
-	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cpf = request.getParameter("cpf");
+c.setCpf(request.getParameter("cpf"));
+c.setNome(request.getParameter("nome"));
+c.setEndereco(request.getParameter("endereco"));
+c.setTel(request.getParameter("telefone"));
+c.setEmail(request.getParameter("email"));
+System.out.println(c.getCpf());
 
-		c = clienteDAO.cliByCpf(cpf);
+clienteDAO.save(c);
+response.sendRedirect("./cliente");}
 
-		request.setAttribute("cpf", c.getCpf());
-		request.setAttribute("nome", c.getNome());
-		request.setAttribute("endereco", c.getEndereco());
-		request.setAttribute("telefone", c.getTel());
-		request.setAttribute("email", c.getEmail());
+protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+String cpf = request.getParameter("cpf");
 
-		RequestDispatcher rd = request.getRequestDispatcher("./views/clientes/update.jsp");
-		rd.forward(request, response);
+c = clienteDAO.cliByCpf(cpf);
 
-	}
+request.setAttribute("cpf", c.getCpf());
+request.setAttribute("nome", c.getNome());
+request.setAttribute("endereco", c.getEndereco());
+request.setAttribute("telefone", c.getTel());
+request.setAttribute("email", c.getEmail());
 
-	// UPDATE
-	protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		c.setCpf(request.getParameter("cpf"));
-		c.setNome(request.getParameter("nome"));
-		c.setEndereco(request.getParameter("endereco"));
-		c.setTel(request.getParameter("telefone"));
-		c.setEmail(request.getParameter("email"));
+RequestDispatcher rd = request.getRequestDispatcher("./views/clientes/update.jsp");
+rd.forward(request, response);
+}
+protected void update(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
+c.setCpf(request.getParameter("cpf"));
+c.setNome(request.getParameter("nome"));
+c.setEndereco(request.getParameter("endereco"));
+c.setTel(request.getParameter("telefone"));
+c.setEmail(request.getParameter("email"));
 
-		clienteDAO.update(c);
-		response.sendRedirect("cliente");
-	}
+clienteDAO.update(c);
+response.sendRedirect("./cliente");
+}
+protected void delet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+	String cpf= request.getParameter("cpf");
 
-	// DELET
-	protected void delet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cpf = request.getParameter("cpf");
+clienteDAO.removeByCpf(cpf);
+response.sendRedirect("./cliente");
+}
 
-		clienteDAO.removeByCpf(cpf);
-		response.sendRedirect("cliente");
-	}
-
-	
-
-	}
-
-
+}

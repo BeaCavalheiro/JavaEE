@@ -55,7 +55,7 @@ List<Reserva> reservas = (List<Reserva>) request.getAttribute("reservas");
 	<div class="container ">
 		<h2 class="container">Reservas</h2>
 		<div class="container">
-			<a href="./reserva-creat" class="btn btn-warning"> Nova Reserva</a>
+			<a href="./views/reserva/create.jsp" class="btn btn-warning"> Nova Reserva</a>
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -72,28 +72,28 @@ List<Reserva> reservas = (List<Reserva>) request.getAttribute("reservas");
 							<th>Mudar/Apagar</th>
 						</tr>
 					</thead>
-					<!--  <tbody>
-		//for (Reserva r : reservas) {				%>
+				<tbody>
+		<%for (Reserva r : reservas) {				%>
 				<tr>
-					<td//=r.getcod()				%></td>
-					<td//=r.getCliente().getNome()			%></td>
-					<td//=r.getEntrada()				%></td>
-					<td//=r.getSaida()				%></td>
-					<td//=r.getDestino().getNome()				%></td>
-					<td//=r.getHospedagem().getNome				%></td>
+					<td><%=r.getCod()	%></td>
+					<td><%=r.getCliente().getNome()			%></td>
+					<td><%=r.getEntrada()				%></td>
+					<td><%=r.getSaida()				%></td>
+					<td><%=r.getDestino().getNome()				%></td>
+					<td><%=r.getHospedagem().getNome()				%></td>
 					<td>
-					<td//=r.getTransporte().getNomeComp()				%></td>
-					<td//=r.getTransporte().getAerRod()				%></td>
-					<td//=r.getTransporte().getNumEmb()				%></td>
+					<td><%=r.getTransporte().getNomeComp()				%></td>
+					<td><%=r.getTransporte().getAerRod()				%></td>
+					<td><%=r.getTransporte().getNumEmb()				%></td>
 					</td>
-					<td//=r.getTotal()				%></td>-->
+					<td><%=r.getTotal()				%></td>
 					<td class="d-flex"><a
-						href="./reserva-edit?id=<%//=r.getId()%>" class="btn btn-info"> Editar</a>
-						<a href="./reserva-delet?id=<%//=c.getId()%>"
+						href="./reserva-edit?id=<%=r.getId()%>" class="btn btn-info"> Editar</a>
+						<a href="./reserva-delet?id=<%=c.getId()%>"
 						class="btn btn-danger"> Apagar </a></td>
 					</tr>
 					<%
-					//}
+					}
 					%>
 					</tbody>
 					

@@ -42,23 +42,23 @@
 			<fieldset>
 			<p>
 					<label for="cpf">CPF:</label> <input type="text" id="cpf"
-						name="cpf" size="40" class="form-control" value="<%request.getAttribute("cpf");%>">
+						name="cpf" size="40" class="form-control" value="<%=request.getAttribute("cpf")%>">
 				<p>
 					<label for="nome">Nome:</label> <input type="text" id="nome"
-						name="nome" size="40" class="form-control" value="<%request.getAttribute("nome");%>">
+						name="nome" size="40" class="form-control" value="<%=request.getAttribute("nome")%>">
 				</p>
 <p>
 					<label for="endereco">Endereço:</label> <input type="text" id="endereco"
-						name="endereco" size="40" class="form-control" value="<%request.getAttribute("endereco");%>">
+						name="endereco" size="40" class="form-control" value="<%=request.getAttribute("endereco")%>">
 				</p>
 				<p>
 					<label for="telefone">Telefone:</label> <input type="tel"
-						id="telefone" name="telefone" size="15" class="form-control" value="<%request.getAttribute("telefone");%>">
+						id="telefone" name="telefone" size="15" class="form-control" value="<%=request.getAttribute("telefone")%>">
 				</p>
 
 				<p>
 					<label for="email">E-mail:</label> <input type="email" id="email"
-						name="email" size="40" class="form-control" value="<%request.getAttribute("email");%>">
+						name="email" size="40" class="form-control" value="<%=request.getAttribute("email")%>">
 				</p>
 
 				<p>

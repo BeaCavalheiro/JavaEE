@@ -55,7 +55,7 @@ List<Hospedagem> hospedagens = (List<Hospedagem>) request.getAttribute("hospedag
 	<div class="container ">
 		<h2 class="container">Hospedagem</h2>
 		<div class="container">
-			<a href="./hospedagem-creat" class="btn btn-warning"> Add Hóteis</a>
+			<a href="./views/hospedagem/create.jsp" class="btn btn-warning"> Add Hóteis</a>
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -68,21 +68,22 @@ List<Hospedagem> hospedagens = (List<Hospedagem>) request.getAttribute("hospedag
 							<th>Mudar/Apagar</th>
 						</tr>
 					</thead>
-					<!--  <tbody>
-		//for (Hospedagem h : hospedagens) {				%>
+					 <tbody>
+		<%for (Hospedagem h : hospedagens) {%>
 				<tr>
-					<t//=h.getId()				%></td>
-					<t//=h.getNome()				%></td>
-					<t//=h.getEndereco()				%></td>
-					<t//=h.getTel()				%></td>
-					<t//=h.getValor()				%></td>-->
+					<td><%=h.getId()%></td>
+					<td><%=h.getNome()%></td>
+					<td><%=h.getEndereco()%></td>
+					<td><%=h.getTel()%></td>
+					<td><%=h.getValor()%></td>
+					</td>
 					<td class="d-flex"><a
-						href="./hospedagem-edit?id=<%//=h.getId()%>" class="btn btn-info"> Editar</a>
-						<a href="./hospedagem-delet?id=<%//=h.getId()%>"
+						href="./hospedagem-edit?id=<%=h.getId()%>" class="btn btn-info"> Editar</a>
+						<a href="./hospedagem-delet?id=<%=h.getId()%>"
 						class="btn btn-danger"> Apagar </a></td>
 					</tr>
 					<%
-					//}
+					}
 					%>
 					</tbody>
 					

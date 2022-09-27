@@ -55,7 +55,7 @@ List<Transporte> transportes = (List<Transporte>) request.getAttribute("transpor
 	<div class="container ">
 		<h2 class="container">Transportes</h2>
 		<div class="container">
-			<a href="./transporte-creat" class="btn btn-warning"> Add Transporte</a>
+			<a href="./views/transporte/create.jsp"class="btn btn-warning"> Add Transporte</a>
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -70,7 +70,7 @@ List<Transporte> transportes = (List<Transporte>) request.getAttribute("transpor
 					</thead>
 					<tbody>
 						<%
-						for (Transporte t : transporte) {
+						for (Transporte t : transportes) {
 						%>
 						<tr>
 							<td><%=t.getId()%></td>
@@ -79,8 +79,8 @@ List<Transporte> transportes = (List<Transporte>) request.getAttribute("transpor
 							<td><%=t.getNumEmb()%></td>
 							<td><%=t.getValor()%></td>
 							<td class="d-flex"><a
-								href="./cliente-edit?id=<%=t.getId()%>" class="btn btn-info">
-									Editar</a> <a href="./cliente-delet?id=<%=t.getId()%>"
+								href="./transporte-edit?id=<%=t.getId()%>" class="btn btn-info">
+									Editar</a> <a href="./transporte-delet?id=<%=t.getId()%>"
 								class="btn btn-danger"> Apagar </a></td>
 						</tr>
 						<%
