@@ -55,7 +55,7 @@ List<Destino> destinos = (List<Destino>) request.getAttribute("destinos");
 	<div class="container ">
 		<h2 class="container">Destinos</h2>
 		<div class="container">
-			<a href="./destino-creat" class="btn btn-warning"> Add Destinos</a>
+			<a href="./views/destino/create.jsp" class="btn btn-warning"> Add Destinos</a>
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -67,21 +67,21 @@ List<Destino> destinos = (List<Destino>) request.getAttribute("destinos");
 							<th>Mudar/Apagar</th>
 						</tr>
 					</thead>
-					<!--  <tbody>
-		//for (Destino d : destinos) {				%>
+					 <tbody>
+		<%for (Destino d : destinos) {				%>
 				<tr>
-					<t//=d.getId()				%></td>
-					<t//=d.getNome()				%></td>
-					<t//=d.getLocal()				%></td>
-					<t//=d.getValor()				%></td>
-					</td>-->
+					<td><%=d.getId()				%></td>
+					<td><%=d.getNome()				%></td>
+					<td><%=d.getLocal()				%></td>
+					<td><%=d.getValor()				%></td>
+					</td>
 					<td class="d-flex"><a
-						href="./destino-edit?id=<%//=d.getId()%>" class="btn btn-info"> Editar</a>
-						<a href="./destino-delet?id=<%//=d.getId()%>"
+						href="./destino-edit?id=<%=d.getId()%>" class="btn btn-info"> Editar</a>
+						<a href="./destino-delet?id=<%=d.getId()%>"
 						class="btn btn-danger"> Apagar </a></td>
 					</tr>
 					<%
-					//}
+					}
 					%>
 					</tbody>
 					

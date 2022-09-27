@@ -60,30 +60,32 @@ List<Transporte> transportes = (List<Transporte>) request.getAttribute("transpor
 				<table class="table">
 					<thead>
 						<tr>
-							<th>CPF</th>
-							<th>NOME</th>
-							<th>ENDEREÇO</th>
-							<th>TELEFONE</th>
-							<th>EMAIL</th>
+							<th>ID</th>
+							<th>NOME COMPANHIA</th>
+							<th>AEROPORTO/RODOVIARIA</th>
+							<th>N EMBARQUE</th>
+							<th>VALOR</th>
 							<th>Mudar/Apagar</th>
 						</tr>
 					</thead>
-					<!--  <tbody>
-		//for (Transporte c : transportes) {				%>
-				<tr>
-					<t//=c.getCpf()				%></td>
-					<t//=c.getNome()				%></td>
-					<t//=c.getEndereco()				%></td>
-					<t//=c.getTel()				%></td>
-					<t//=c.getEmail()				%></td>-->
-					<td class="d-flex"><a
-						href="./transporte-edit?id=<%//=c.getCpf()%>" class="btn btn-info"> Editar</a>
-						<a href="./transporte-delet?id=<%//=c.getCpf()%>"
-						class="btn btn-danger"> Apagar </a></td>
-					</tr>
-					<%
-					//}
-					%>
+					<tbody>
+						<%
+						for (Transporte t : transporte) {
+						%>
+						<tr>
+							<td><%=t.getId()%></td>
+							<td><%=t.getNomeComp()%></td>
+							<td><%=t.getAerRod()%></td>
+							<td><%=t.getNumEmb()%></td>
+							<td><%=t.getValor()%></td>
+							<td class="d-flex"><a
+								href="./cliente-edit?id=<%=t.getId()%>" class="btn btn-info">
+									Editar</a> <a href="./cliente-delet?id=<%=t.getId()%>"
+								class="btn btn-danger"> Apagar </a></td>
+						</tr>
+						<%
+						}
+						%>
 					</tbody>
 					
 				</table>

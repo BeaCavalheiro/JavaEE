@@ -148,6 +148,9 @@
                         <li class="nav-item  ">
                             <a class="nav-link active" aria-current="page" href="agencia/HT.html">Trabalhe Conosco</a>
                         </li>
+                        <li class="nav-item  ">
+                            <a class="nav-link active" aria-current="page" href="./cliente">ADM</a>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -29,31 +29,26 @@
 	</nav>
 	<div class="container">
 		<h3>Cadastrar Destino</h3>
-		<form action="../../controller/DestinoServelet" method="post" class="form-control">
+		<form action="../../destino-creat" method="post" class="form-control">
 			<fieldset>
 			<p>
-					<label for="cpf">CPF:</label> <input type="text" id="cpf"
-						name="cpf" size="40" class="form-control">
+					<label for="id">ID:</label> <input type="text" id="id"
+						name="id" size="40" class="form-control">
 				<p>
 					<label for="nome">Nome:</label> <input type="text" id="nome"
 						name="nome" size="40" class="form-control">
 				</p>
 <p>
-					<label for="endereco">Endereço:</label> <input type="text" id="endereco"
-						name="endereco" size="40" class="form-control">
+					<label for="local">Local:</label> <input type="text" id="local"
+						name="local" size="40" class="form-control">
 				</p>
 				<p>
-					<label for="telefone">Telefone:</label> <input type="tel"
-						id="telefone" name="telefone" size="15" class="form-control">
-				</p>
-
-				<p>
-					<label for="email">E-mail:</label> <input type="email" id="email"
-						name="email" size="40" class="form-control">
+					<label for="valor">Valor:</label> <input type="valor"
+						id="valor" name="valor" size="15" class="form-control">
 				</p>
 
 				<p>
-					<input type="submit" value="Cadastrar Cliente"
+					<input type="submit" value="Cadastrar Destino"
 						class="btn btn-primary">
 				</p>
 			</fieldset>

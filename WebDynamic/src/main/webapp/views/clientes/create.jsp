@@ -38,7 +38,7 @@
 </nav>
 	<div class="container">
 		<h3>Cadastrar Clientes</h3>
-		<form action="./cliente-creat" class="form-control">
+		<form action="../../cliente-creat" class="form-control">
 			<fieldset>
 			<p>
 					<label for="cpf">CPF:</label> <input type="text" id="cpf"
