@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"
+ %>
+ 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>HT-ADM(clientes)</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -20,8 +22,8 @@
 
 <body>
 <nav class="nav navbar-light bg-light">
-		<a class="nav-link active" aria-current="page" href="./cliente"><h3>HT</h3></a>
-		<a class="nav-link"	href="../clientes/index.jsp">Clientes</a> 
+		<a class="nav-link active" aria-current="page" href="../index.jsp"><h3>HT</h3></a>
+		<a class="nav-link"	href="./cliente">Clientes</a> 
 		<a class="nav-link" href="../hospedagem/index.jsp">Hospedagem</a> <a
 			class="nav-link" href="../transporte/index.jsp">Transporte</a> <a
 			class="nav-link" href="../destino/index.jsp">Destino</a> <a
@@ -36,7 +38,7 @@
 </nav>
 	<div class="container">
 		<h3>Cadastrar Clientes</h3>
-		<form action="../../ClienteServelet" method="post" class="form-control">
+		<form action="./cliente-creat" class="form-control">
 			<fieldset>
 			<p>
 					<label for="cpf">CPF:</label> <input type="text" id="cpf"
@@ -46,7 +48,7 @@
 						name="nome" size="40" class="form-control">
 				</p>
 <p>
-					<label for="endereco">Endereço:</label> <input type="text" id="endereco"
+					<label for="endereco">EndereÃ§o:</label> <input type="text" id="endereco"
 						name="endereco" size="40" class="form-control">
 				</p>
 				<p>
@@ -62,7 +64,7 @@
 				<p>
 					<button type="submit" class="btn btn-primary">Cadastrar
 					</button>
-					<a href=".index.jsp" class="btn btn-danger">Cancelar</a>
+					<a href="../../cliente" class="btn btn-danger">Cancelar</a>
 				</p>
 			</fieldset>
 		</form>

@@ -13,63 +13,102 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.ClienteDAO;
 import model.Cliente;
 
-@WebServlet(urlPatterns = {"/cliente", "/cliente-create", "/cliente-edit", "/cliente-update", "/cliente-delet" })
+@WebServlet(urlPatterns = { "/cliente","/cliente-creat", "/cliente-edit", "/cliente-update", "/cliente-delet" })
 public class ClienteServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	ClienteDAO clienteDAO = new ClienteDAO();
-	Cliente cliente = new Cliente();
+	Cliente c = new Cliente();
 
 	public ClienteServelet() {
 		super();
-		
+
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		String action = request.getServletPath();
-	
-		switch(action) {
-	case "/cliente":
+		System.out.println(action);
+
+		switch (action) {
+		case "/cliente":
 			read(request, response);
 			break;
-	case "/cliente-creat":
-		creat(request,response);
-		break;
-	case "/cliente-edit":
-		edit(request,response);
-		break;
-	case "/cliente-update":
-		update(request,response);
-		break;
-	case "/cliente-delet":
-		delet(request,response);
-		break;
-	default:
-		response.sendRedirect("index.html");
-		break;
-}
-	//read
-	protected void read(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		case "/cliente-creat":
+			creat(request, response);
+			break;
+		case "/cliente-edit":
+			edit(request, response);
+			break;
+		case "/cliente-update":
+			update(request, response);
+			break;
+		case "/cliente-delet":
+			delet(request, response);
+			break;
+		default:
+			response.sendRedirect("index.html");
+			break;
+		}
+	}
+
+	protected void read(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Cliente> lista = clienteDAO.getCliente();
 		request.setAttribute("clientes", lista);
 		RequestDispatcher rd = request.getRequestDispatcher("./views/clientes/index.jsp");
+		rd.forward(request, response);
+		
 	}
+			
+	protected void creat(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-		request.setCharacterEncoding("UTF-8");
+		c.setCpf(request.getParameter("cpf"));
+		c.setNome(request.getParameter("nome"));
+		c.setEndereco(request.getParameter("endereco"));
+		c.setTel(request.getParameter("telefone"));
+		c.setEmail(request.getParameter("email"));
 
+		clienteDAO.save(c);
+		response.sendRedirect("cliente");
+	}
+
+	protected void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cpf = request.getParameter("cpf");
-		String nome = request.getParameter("nome");
-		String endereco = request.getParameter("endereco");
-		String telefone = request.getParameter("telefone");
-		String email = request.getParameter("email");
 
-		response.sendRedirect("views/clientes/index.jsp?cpf=" + cpf + "&nome=" + nome + "&endereco=" + endereco
-				+ "&telefone=" + telefone + "&email" + email);
+		c = clienteDAO.cliByCpf(cpf);
+
+		request.setAttribute("cpf", c.getCpf());
+		request.setAttribute("nome", c.getNome());
+		request.setAttribute("endereco", c.getEndereco());
+		request.setAttribute("telefone", c.getTel());
+		request.setAttribute("email", c.getEmail());
+
+		RequestDispatcher rd = request.getRequestDispatcher("./views/clientes/update.jsp");
+		rd.forward(request, response);
 
 	}
 
-}
+	// UPDATE
+	protected void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		c.setCpf(request.getParameter("cpf"));
+		c.setNome(request.getParameter("nome"));
+		c.setEndereco(request.getParameter("endereco"));
+		c.setTel(request.getParameter("telefone"));
+		c.setEmail(request.getParameter("email"));
+
+		clienteDAO.update(c);
+		response.sendRedirect("cliente");
+	}
+
+	// DELET
+	protected void delet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cpf = request.getParameter("cpf");
+
+		clienteDAO.removeByCpf(cpf);
+		response.sendRedirect("cliente");
+	}
+
+	
+
+	}
+
+

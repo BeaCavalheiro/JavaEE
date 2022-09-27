@@ -37,17 +37,20 @@ List<Cliente> clientes = (List<Cliente>) request.getAttribute("clientes");
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="./clientes">Clientes</a></li>
-					<li class="nav-item">	<a class="nav-link" href="./hospedagem">Hospedagem</a> </li>
-					<li class="nav-item">	<a class="nav-link" href="./transporte">Transporte</a> </li>
-					<li class="nav-item">	<a class="nav-link" href="./destino">Destino</a> </li>
-					<li class="nav-item">	<a class="nav-link" href="./reserva">Reserva</a></li>
+					<li class="nav-item"><a class="nav-link" href="./cliente">Clientes</a></li>
+					<li class="nav-item"><a class="nav-link" href="./hospedagem">Hospedagem</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./transporte">Transporte</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./destino">Destino</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="./reserva">Reserva</a></li>
 				</ul>
 			</div>
 	</nav>
 	<nav style="-bs-breadcrumb-divider: '&gt;';" aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="../../index.jsp">HT</a></li>
+			<li class="breadcrumb-item"><a href="./index.jsp">HT</a></li>
 			<li class="breadcrumb-item active" aria-current="page">ADM</li>
 			<li class="breadcrumb-item active" aria-current="page">Clientes</li>
 		</ol>
@@ -55,7 +58,7 @@ List<Cliente> clientes = (List<Cliente>) request.getAttribute("clientes");
 	<div class="container ">
 		<h2 class="container">Clientes</h2>
 		<div class="container">
-			<a href="./cliente-creat" class="btn btn-warning"> Add Cliente</a>
+			<a href="./views/clientes/create.jsp" class="btn btn-warning"> Add Cliente</a>
 			<div class="table-responsive">
 				<table class="table">
 					<thead>
@@ -68,24 +71,26 @@ List<Cliente> clientes = (List<Cliente>) request.getAttribute("clientes");
 							<th>Mudar/Apagar</th>
 						</tr>
 					</thead>
-					<!--  <tbody>
-		//for (Cliente c : clientes) {				%>
-				<tr>
-					<t//=c.getCpf()				%></td>
-					<t//=c.getNome()				%></td>
-					<t//=c.getEndereco()				%></td>
-					<t//=c.getTel()				%></td>
-					<t//=c.getEmail()				%></td>-->
-					<td class="d-flex"><a
-						href="./cliente-edit?id=<%//=c.getCpf()%>" class="btn btn-info"> Editar</a>
-						<a href="./cliente-delet?id=<%//=c.getCpf()%>"
-						class="btn btn-danger"> Apagar </a></td>
-					</tr>
-					<%
-					//}
-					%>
+					<tbody>
+						<%
+						for (Cliente c : clientes) {
+						%>
+						<tr>
+							<td><%=c.getCpf()%></td>
+							<td><%=c.getNome()%></td>
+							<td><%=c.getEndereco()%></td>
+							<td><%=c.getTel()%></td>
+							<td><%=c.getEmail()%></td>
+							<td class="d-flex"><a
+								href="./cliente-edit?id=<%=c.getCpf()%>" class="btn btn-info">
+									Editar</a> <a href="./cliente-delet?id=<%=c.getCpf()%>"
+								class="btn btn-danger"> Apagar </a></td>
+						</tr>
+						<%
+						}
+						%>
 					</tbody>
-					
+
 				</table>
 			</div>
 		</div>
